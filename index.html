@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            if ($(window).scrollTop() <= 0) {
+                //alert("top!");
+            }
+            if ($(window).scrollTop() + window.innerHeight == $(document).height()) {
+                //alert("bottom!");
+                window.location.href = "page2.html";
+            }
+        });
+        $(document).ready(function () {
+            var referrer = document.referrer;
+            if (referrer.indexOf("page2") >= 0) {
+                //alert(document.referrer);
+                $(window).scrollTop($(document).height() - window.innerHeight - 10);
+            }
+        });
+    </script>
+    <style>
+        #contentDiv {
+            position: absolute;
+            width: 100%;
+            height: 3000px;
+            background-color: red;
+        }
+
+        #topDiv {
+            font-size: 10vh;
+            line-height: 25vh;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            height: 25vh;
+            background: black;
+            color: white;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #bottomDiv {
+            font-size: 10vh;
+            line-height: 25vh;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            height: 25vh;
+            background: black;
+            color: white;
+            display: inline-block;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contentDiv">
+        <div id="topDiv">TOP PAGE 1</div>
+        <div id="bottomDiv">BOTTOM PAGE 1</div>
+    </div>
+</body>
+
+</html>
